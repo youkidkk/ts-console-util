@@ -1,9 +1,9 @@
 {
-  "name": "typescript-base",
+  "name": "ts-text-util",
   "version": "1.0.0",
-  "description": "TypeScript project base",
+  "description": "TypeScript text utilities.",
   "main": "./build/index.js",
-  "repository": "https://github.com/youkidkk/typescript-base",
+  "repository": "https://github.com/youkidkk/ts-text-util",
   "author": "youkidkk",
   "license": "None",
   "private": true,

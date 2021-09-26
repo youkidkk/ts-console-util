@@ -1,3 +1,6 @@
+import * as os from "os";
+import readline from "readline";
+
 export function getTextWidth(text: string): number {
   return [...text].reduce((sum: number, char: string) => {
     const charCode = char.charCodeAt(0);
@@ -41,3 +44,41 @@ function padding(
   }
   return resultTextFunc(text, padChar.repeat(width - textWidth));
 }
+
+class ConsoleClass {
+  previousLogWidth: number;
+
+  constructor() {
+    this.previousLogWidth = 0;
+  }
+
+  print(text: string): void {
+    readline.cursorTo(process.stdout, 0);
+    const outText = paddingRight(text, this.previousLogWidth);
+    process.stdout.write(outText);
+    this.previousLogWidth = getTextWidth(text);
+  }
+
+  printLine(text: string): void {
+    readline.cursorTo(process.stdout, 0);
+    const outText = paddingRight(text, this.previousLogWidth);
+    process.stdout.write(outText + os.EOL);
+    this.previousLogWidth = 0;
+  }
+
+  printError(text: string): void {
+    readline.cursorTo(process.stdout, 0);
+    const outText = paddingRight(text, this.previousLogWidth);
+    process.stderr.write(outText);
+    this.previousLogWidth = getTextWidth(text);
+  }
+
+  printErrorLine(text: string): void {
+    readline.cursorTo(process.stdout, 0);
+    const outText = paddingRight(text, this.previousLogWidth);
+    process.stderr.write(outText + os.EOL);
+    this.previousLogWidth = 0;
+  }
+}
+
+export const Console = new ConsoleClass();

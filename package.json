@@ -1,9 +1,9 @@
 {
-  "name": "ts-text-util",
+  "name": "ts-console-util",
   "version": "1.0.0",
   "description": "TypeScript text utilities.",
   "main": "./build/index.js",
-  "repository": "https://github.com/youkidkk/ts-text-util",
+  "repository": "https://github.com/youkidkk/ts-console-util",
   "author": "youkidkk",
   "license": "None",
   "private": true,
